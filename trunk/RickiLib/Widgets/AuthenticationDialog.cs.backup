@@ -1,0 +1,141 @@
+
+using System;
+using Gtk;
+
+namespace RickiLib.Widgets
+{
+	
+	
+	public class AuthenticationDialog : Gtk.Dialog
+	{
+		private Gtk.Image imageLogo;
+		private Gtk.Label labelSubtitle;
+		private Gtk.Label labelHint;
+		
+		private Gtk.Entry entryUsername;
+		private Gtk.Entry entryPassword;
+		
+		private string subtitle;
+		private string hint;
+		
+		private bool allowEntries;
+		
+		public AuthenticationDialog ()
+		{
+			base.Title = "Autenticación de usuario";
+			base.Resize (300, 200);
+			
+			allowEntries = true;
+			
+			labelSubtitle = new Label ();
+			labelSubtitle.SetAlignment (0.2f, 1f);
+			labelHint = new Label ();
+			labelHint.SetAlignment (0.2f, 1f);
+			
+			entryUsername = new Entry ();
+			entryPassword = new Entry ();
+			entryPassword.Visibility = false;
+			
+			imageLogo = new Gtk.Image (
+				"gtk-dialog-authentication", 
+				IconSize.Dialog);
+			
+			Subtitle = "Autenticación";
+			Hint = "Por favor introduzca su nombre de usuario\n" + 
+				"y contraseña para iniciar su sesión.";
+			
+			
+			
+			base.VBox.PackStart (labelSubtitle, false, false, 0);
+			base.VBox.PackStart (labelHint, false, false, 0);
+			
+			base.VBox.PackStart (new HSeparator (), false, false, 5);
+			
+			Gtk.HBox hbox = new HBox (false, 5);
+			Gtk.Label label = Factory.Label ("Usuario");
+			label.WidthRequest = 100;
+
+			hbox.PackEnd (entryUsername, true, true, 0);			
+			hbox.PackEnd (label, false, false, 0);
+			
+			Gtk.VBox vbox = new VBox (false, 5);
+			Gtk.HBox hbox2 = new HBox (false, 5);
+			
+			vbox.PackStart (hbox, true, false, 0);
+			
+			hbox = new HBox (false, 5);
+			label = Factory.Label ("Password");
+			label.WidthRequest = 100;			
+
+			hbox.PackEnd (entryPassword, true, true, 0);
+			hbox.PackEnd (label, false, false, 0);
+			
+			vbox.PackStart (hbox, true, false, 0);
+			
+			hbox2.PackStart (imageLogo, false, false,0);
+			hbox2.PackEnd (vbox, true, true, 0);
+			
+			
+			
+			base.VBox.PackEnd (hbox2);
+			
+			base.VBox.ShowAll ();
+			
+			base.AddButton (Stock.Cancel, ResponseType.Cancel);
+			base.AddButton (Stock.Ok, ResponseType.Ok);
+		}
+		
+		protected virtual bool Autenticate (string username, string password)
+		{
+			return true;
+		}
+		
+		private void updateSubtitle ()
+		{
+			labelSubtitle.Markup = string.Format (
+				"<b><span font_desc='comic sans ms 18'>{0}</span></b>", 
+				subtitle);
+		}
+		
+		private void updateHint ()
+		{
+			labelHint.Text = hint;
+		}
+		
+		protected Gtk.Label SubtitleLabel {
+			get { return labelSubtitle; }
+		}
+		
+		protected Gtk.Label HintLabel {
+			get { return labelHint; }
+		}
+		
+		protected Gtk.Entry UsernameEntry {
+			get { return entryUsername; }
+		}
+		
+		protected Gtk.Entry PasswordEntry {
+			get { return entryPassword; }
+		}
+		
+		public string Subtitle {
+			get { return subtitle; }
+			set { 
+				subtitle = value;
+				updateSubtitle ();
+			}
+		}
+		
+		public string Hint { 
+			get { return hint; }
+			set { 
+				hint = value; 
+				updateHint ();
+			}
+		}
+		
+		public bool AllowEmptyEntries {
+			get { bool allowEmpty; }
+		}
+	}
+}
