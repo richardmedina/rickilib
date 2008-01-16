@@ -18,14 +18,12 @@ namespace RickiLib.Widgets
 		
 		private string text;
 		
+		private event EventHandler changed;
+		
 		public EditableLabel ()
 		{
-			//base.Relief = ReliefStyle.None;
-			
-			//base.ModifyBg (StateType.Normal,
-			//	Gdk.Color.;
+			changed = onChanged;
 			this.text = string.Empty;
-			//this.Events = Gdk.EventMask.AllEventsMask;
 			
 			entry = new Gtk.Entry ();
 			entry.WidthRequest = 10;
@@ -34,7 +32,6 @@ namespace RickiLib.Widgets
 			
 			label = new Gtk.Label (text);
 			label.Ellipsize = Pango.EllipsizeMode.End;
-			//label.MaxWidthChars = 5;
 			label.SetAlignment (0.0f, 0.5f);
 			label.CanFocus = true;
 			
@@ -85,7 +82,10 @@ namespace RickiLib.Widgets
 		
 		private void entry_Activated (object sender, EventArgs args)
 		{
-			Text = entry.Text;
+			if (entry.Text != Text) {
+				Text = entry.Text;
+				OnChanged ();
+			}
 			ShowHideEditor ();
 		}
 		
@@ -95,13 +95,27 @@ namespace RickiLib.Widgets
 				ShowHideEditor ();
 			}
 		}
+		
+		protected virtual void OnChanged ()
+		{
+			changed (this, EventArgs.Empty);
+		}
+		
+		private void onChanged (object sender, EventArgs args)
+		{
+		}
 				
 		public string Text {
 			get { return text; }
 			set { 
 				text = value;
-				label.Text =text;
+				label.Text = text;
 			}
+		}
+		
+		public event EventHandler Changed {
+			add { changed += value; }
+			remove { changed -= value; }
 		}
 	}
 }

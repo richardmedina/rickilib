@@ -62,12 +62,13 @@
     <File name="./pixmaps/dialog_auth_icon.png" subtype="Code" buildaction="EmbedAsResource" />
     <File name="./Widgets/AuthenticationWidget.cs" subtype="Code" buildaction="Compile" />
     <File name="./Data/NpgSql/NpgsqlDatabase.cs" subtype="Code" buildaction="Compile" />
-    <File name="./AppSettings.cs" subtype="Code" buildaction="Compile" />
+    <File name="./AppSettings.cs" subtype="Code" buildaction="Nothing" />
     <File name="./Types/WatchedCollection.cs" subtype="Code" buildaction="Compile" />
     <File name="./Types/WatchedCollectionEvent.cs" subtype="Code" buildaction="Compile" />
     <File name="./Widgets/EditableLabel.cs" subtype="Code" buildaction="Compile" />
     <File name="./Widgets/EditableLabelButton.cs" subtype="Code" buildaction="Compile" />
     <File name="./Widgets/ExtendedMenuItem.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Widgets/WindowSettings.cs" subtype="Code" buildaction="Compile" />
   </Contents>
   <References>
     <ProjectReference type="Gac" localcopy="True" refto="gtk-sharp, Version=2.8.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />

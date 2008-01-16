@@ -22,5 +22,10 @@ namespace RickiLib.Widgets
 				0, 0);
 		}
 		
+		public static void RunOnGtkThread (ReadyEvent re)
+		{
+			new ThreadNotify (re).WakeupMain ();
+		}
+		
 	}
 }
