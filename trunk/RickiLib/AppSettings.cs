@@ -12,7 +12,7 @@ namespace RickiLib
 	
 	public class AppSettings
 	{
-		private string name;
+		private string name = "UnnamedApp";
 		
 		public AppSettings ()
 		{
@@ -23,6 +23,8 @@ namespace RickiLib
 		{
 			return string.Format ("{0} - {1}", title, name);
 		}
+		
+		//public void SaveWindow
 		
 		public string Name {
 			get { return name; }
