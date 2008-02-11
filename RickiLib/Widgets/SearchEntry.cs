@@ -48,7 +48,7 @@ namespace RickiLib.Widgets
 			ebImageClear = new EventBox ();
 			ebImageClear.EnterNotifyEvent += ebImageClear_EnterNotifyEvent;
 			ebImageClear.ButtonPressEvent += ebImageClear_ButtonPressEvent;
-			//ebImageClear.Shown += ebImageClear_Shown;			
+			ebImageClear.Shown += ebImageClear_Shown;			
 			eventbox.ModifyBg (
 				entry.State, 
 				background
@@ -73,6 +73,7 @@ namespace RickiLib.Widgets
 			hbox.PackStart (ebImageClear, false, false, 0);
 			
 			eventbox.Add (hbox);
+			
 			base.Add (eventbox);
 		}
 		
@@ -100,10 +101,10 @@ namespace RickiLib.Widgets
 		private void menu_MenuPositionFunc (Menu menu, out int x, out int y, out bool push_in)
 		{
 			int bx, by;
-			ebImageFind.GdkWindow.GetOrigin (out bx, out by);
+			base.Parent.GdkWindow.GetRootOrigin (out bx, out by);
 			
-			x = bx;
-			y = by + ebImageFind.Allocation.Height;
+			x = bx + Allocation.X;
+			y = by + Allocation.Y + Allocation.Height;
 			
 			push_in = false;
 		}
@@ -129,18 +130,20 @@ namespace RickiLib.Widgets
 		protected override void OnShown ()
 		{
 			base.OnShown ();
-			if (entry.Text.Length == 0)
-				ebImageClear.Hide ();
+			//entry_Changed (entry, EventArgs.Empty);	
+			//if (entry.Text.Length == 0)
+			//	ebImageClear.Hide ();
 		}
 				
 		private void entry_Changed (object sender,
 			EventArgs args)
 		{
-			if ( entry.Text.Length == 0)
-				ebImageClear.Hide ();
-			else
-				ebImageClear.Show ();
-			
+			ebImageClear.Visible = !(entry.Text.Length == 0); 
+		}
+		
+		private void ebImageClear_Shown (object sender, EventArgs args)
+		{
+			entry_Changed (entry,EventArgs.Empty);
 		}
 		
 		public Gtk.Entry Entry {
