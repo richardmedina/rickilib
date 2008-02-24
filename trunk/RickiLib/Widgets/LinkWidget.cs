@@ -49,7 +49,7 @@ namespace RickiLib.Widgets
 		private void updateLabelText ()
 		{
 			label.Markup = string.Format (
-				"<span font_desc='8' foreground='#73ABC6'><b>{0}</b></span>", 
+				"<span font_desc='8'><b>{0}</b></span>", 
 				text
 				);
 		}
