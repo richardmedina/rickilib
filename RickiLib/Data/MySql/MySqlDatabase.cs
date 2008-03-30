@@ -8,27 +8,20 @@ namespace RickiLib.Data.MySql
 {
 	
 	public class MySqlDatabase : Database
-	{
-		private string name;
-		private string hostname;
-		private string username;
-		private string password;
-		
+	{		
 		private bool connected;
 		
 		private MySqlConnection connection;
-		
-		~MySqlDatabase ()
+				
+		public MySqlDatabase ()
 		{
-			base.Close ();
+		
 		}
-		
-		public MySqlDatabase (string hostname, string username, string password, string name)
+		public MySqlDatabase (string hostname, 
+			string username, 
+			string password, 
+			string name) : base (hostname, username, password, name)
 		{
-			this.hostname = hostname;
-			this.username = username;
-			this.password = password;
-			this.name = name;
 		}
 		
 		public override bool Open ()
@@ -40,12 +33,10 @@ namespace RickiLib.Data.MySql
 							"Database={1};" +
 							"User ID={2};" +
 							"Password={3};",				
-						hostname,
-						name,
-						username,
-						password
-					)
-				);
+						Hostname,
+						Name,
+						Username,
+						Password));
 				connection.Open ();
 			} catch (Exception) {
 				return connected = false;

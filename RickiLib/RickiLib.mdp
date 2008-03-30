@@ -14,61 +14,62 @@
     </Configuration>
   </Configurations>
   <Contents>
-    <File name="./AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets" subtype="Directory" buildaction="Compile" />
-    <File name="./Widgets/ManagedNotebook.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/INotebookPage.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/CustomWindow.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/SearchEntry.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/CustomDialog.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/CustomMenu.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Types" subtype="Directory" buildaction="Compile" />
-    <File name="./Types/CloseEvent.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/CustomButton.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/Factory.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/Utils.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/DateEntry.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/SelectDateDialog.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/SearchDialog.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/SearchWidget.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/HelpDialog.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Data" subtype="Directory" buildaction="Compile" />
-    <File name="./Data/Database.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Data/IRegister.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Data/NpgSql" subtype="Directory" buildaction="Compile" />
-    <File name="./Data/Oracle" subtype="Directory" buildaction="Compile" />
-    <File name="./Data/MySql/MySqlDatabase.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/TabulatorSection.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/TabulatorSectionTitle.cs" subtype="Code" buildaction="Compile" />
-    <File name="./pixmaps/folder.png" subtype="Code" buildaction="EmbedAsResource" />
-    <File name="./pixmaps/module.png" subtype="Code" buildaction="EmbedAsResource" />
-    <File name="./Widgets/CustomCellRendererText.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/LinkWidget.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/CustomScrolledWindow.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/DrawingAreaGDI.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Types/PaintHandler.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/AuthenticationDialog.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/TreeModuleChooser.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/NotebookModuleChooser.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/Module.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/IconModuleChooser.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Types/ModuleCollection.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Types/ModuleCollectionEvent.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Drawing/Canvas.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Drawing/Rectangle.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Drawing/Shape.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Drawing/ShapeCollection.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Drawing/ShapeComparer.cs" subtype="Code" buildaction="Compile" />
-    <File name="./pixmaps/dialog_auth_icon.png" subtype="Code" buildaction="EmbedAsResource" />
-    <File name="./Widgets/AuthenticationWidget.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Data/NpgSql/NpgsqlDatabase.cs" subtype="Code" buildaction="Compile" />
-    <File name="./AppSettings.cs" subtype="Code" buildaction="Nothing" />
-    <File name="./Types/WatchedCollection.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Types/WatchedCollectionEvent.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/EditableLabel.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/EditableLabelButton.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/ExtendedMenuItem.cs" subtype="Code" buildaction="Compile" />
-    <File name="./Widgets/WindowSettings.cs" subtype="Code" buildaction="Compile" />
+    <File name="AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets" subtype="Directory" buildaction="Compile" />
+    <File name="Widgets/ManagedNotebook.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/INotebookPage.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/CustomWindow.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/SearchEntry.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/CustomDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/CustomMenu.cs" subtype="Code" buildaction="Compile" />
+    <File name="Types" subtype="Directory" buildaction="Compile" />
+    <File name="Types/CloseEvent.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/CustomButton.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/Factory.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/Utils.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/DateEntry.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/SelectDateDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/SearchDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/SearchWidget.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/HelpDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="Data" subtype="Directory" buildaction="Compile" />
+    <File name="Data/Database.cs" subtype="Code" buildaction="Compile" />
+    <File name="Data/IRegister.cs" subtype="Code" buildaction="Compile" />
+    <File name="Data/NpgSql" subtype="Directory" buildaction="Compile" />
+    <File name="Data/Oracle" subtype="Directory" buildaction="Compile" />
+    <File name="Data/MySql/MySqlDatabase.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/TabulatorSection.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/TabulatorSectionTitle.cs" subtype="Code" buildaction="Compile" />
+    <File name="pixmaps/folder.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="pixmaps/module.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="Widgets/CustomCellRendererText.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/LinkWidget.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/CustomScrolledWindow.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/DrawingAreaGDI.cs" subtype="Code" buildaction="Compile" />
+    <File name="Types/PaintHandler.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/AuthenticationDialog.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/TreeModuleChooser.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/NotebookModuleChooser.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/Module.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/IconModuleChooser.cs" subtype="Code" buildaction="Compile" />
+    <File name="Types/ModuleCollection.cs" subtype="Code" buildaction="Compile" />
+    <File name="Types/ModuleCollectionEvent.cs" subtype="Code" buildaction="Compile" />
+    <File name="Drawing/Canvas.cs" subtype="Code" buildaction="Compile" />
+    <File name="Drawing/Rectangle.cs" subtype="Code" buildaction="Compile" />
+    <File name="Drawing/Shape.cs" subtype="Code" buildaction="Compile" />
+    <File name="Drawing/ShapeCollection.cs" subtype="Code" buildaction="Compile" />
+    <File name="Drawing/ShapeComparer.cs" subtype="Code" buildaction="Compile" />
+    <File name="pixmaps/dialog_auth_icon.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="Widgets/AuthenticationWidget.cs" subtype="Code" buildaction="Compile" />
+    <File name="Data/NpgSql/NpgsqlDatabase.cs" subtype="Code" buildaction="Compile" />
+    <File name="AppSettings.cs" subtype="Code" buildaction="Nothing" />
+    <File name="Types/WatchedCollection.cs" subtype="Code" buildaction="Compile" />
+    <File name="Types/WatchedCollectionEvent.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/EditableLabel.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/EditableLabelButton.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/ExtendedMenuItem.cs" subtype="Code" buildaction="Compile" />
+    <File name="Widgets/WindowSettings.cs" subtype="Code" buildaction="Compile" />
+    <File name="Data/Oracle/OracleDatabase.cs" subtype="Code" buildaction="Compile" />
   </Contents>
   <References>
     <ProjectReference type="Gac" localcopy="True" refto="gtk-sharp, Version=2.8.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
@@ -76,13 +77,14 @@
     <ProjectReference type="Gac" localcopy="True" refto="glib-sharp, Version=2.8.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <ProjectReference type="Gac" localcopy="True" refto="gnome-sharp, Version=2.8.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <ProjectReference type="Gac" localcopy="True" refto="gtkhtml-sharp, Version=2.8.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <ProjectReference type="Assembly" localcopy="True" refto="./Data/MySql/MySql.Data.dll" />
+    <ProjectReference type="Assembly" localcopy="True" refto="Data/MySql/MySql.Data.dll" />
     <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <ProjectReference type="Gac" localcopy="True" refto="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <ProjectReference type="Gac" localcopy="True" refto="gtk-dotnet, Version=2.8.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <ProjectReference type="Gac" localcopy="True" refto="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <ProjectReference type="Gac" localcopy="True" refto="Npgsql, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7" />
     <ProjectReference type="Gac" localcopy="True" refto="pango-sharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   </References>
   <DeploymentInformation strategy="File">
     <excludeFiles />

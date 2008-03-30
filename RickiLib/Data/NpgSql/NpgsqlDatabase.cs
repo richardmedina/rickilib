@@ -8,27 +8,23 @@ using System;
 using System.Data;
 using Npgsql;
 
-namespace RickiLib.Data
+namespace RickiLib.Data.Npsql
 {
 	
-	
-	public class NpgsqlDatabase : RickiLib.Data.Database
-	{
-		private string name;
-		private string hostname;
-		private string username;
-		private string password;
-		
+	public class NpgsqlDatabase : Database
+	{		
 		private bool connected;
 		
 		private NpgsqlConnection connection;
 		
-		public NpgsqlDatabase (string hostname, string username, string password, string name)
+		public NpgsqlDatabase ()
 		{
-			this.hostname = hostname;
-			this.username = username;
-			this.password = password;
-			this.name = name;
+		}
+		
+		public NpgsqlDatabase (string hostname, string username, string password, string name) :
+			base (hostname, username, password, name)
+		{
+			
 		}
 		
 		public override bool Open ()
@@ -40,10 +36,10 @@ namespace RickiLib.Data
 							"Database={1};" +
 							"User ID={2};" +
 							"Password={3};",				
-						hostname,
-						name,
-						username,
-						password
+						Hostname,
+						Name,
+						Username,
+						Password
 					)
 				);
 				connection.Open ();

@@ -61,11 +61,12 @@ namespace RickiLib.Widgets
 					dialog.WindowPosition = Gtk.WindowPosition.Center;
 
 					//string html_content = string.Empty;
+					
+					// is now (gtk-2.20) removed without advertisment.. :@
+					//html.PrintSetMaster (pj);
 
-					html.PrintSetMaster (pj);
-
-					Gnome.PrintContext ctx = pj.Context;
-					html.Print (ctx);
+					//Gnome.PrintContext ctx = pj.Context;
+					//html.PrintPage ();
 
 					pj.Close ();
 
