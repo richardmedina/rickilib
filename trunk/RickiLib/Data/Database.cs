@@ -9,17 +9,25 @@ namespace RickiLib.Data
 	public abstract class Database
 	{
 	
-		private string name;
-		private string username;
-		private string password;
-		private string hostname;
-				
-		public Database ()
+		private string _hostname;
+		private string _username;
+		private string _password;
+		private string _name;
+		
+		public Database () :
+			this (string.Empty, 
+				string.Empty, 
+				string.Empty, 
+				string.Empty)
 		{
-			name = string.Empty;
-			username = string.Empty;
-			password = string.Empty;
-			hostname = string.Empty;
+		}
+				
+		public Database (string hostname, string username, string password, string name)
+		{
+			_hostname = string.Empty;
+			_username = string.Empty;
+			_password = string.Empty;
+			_name = name;
 		}
 		
 		public void Close ()
@@ -51,37 +59,20 @@ namespace RickiLib.Data
 		}
 		
 		public virtual string Name { 
-			get {
-				return name;
-			}
-			
-			protected set {
-				name = value;
-			}
+			get { return _name; }
+			set {	_name = value; }
 		}
 		public virtual string Username { 
-			get {
-				return username;
-			}
-			protected set {
-				username = value;
-			}
+			get { return _username; }
+			set { _username = value; }
 		}
 		public virtual string Password { 
-			get {
-				return password;
-			}
-			protected set {
-				password = value;
-			}
+			get { return _password; }
+			set { _password = value; }
 		}
 		public virtual string Hostname {
-			get {
-				return hostname;
-			}
-			protected set {
-				hostname = value;
-			}
+			get { return _hostname; }
+			set { _hostname = value; }
 		}
 		
 		//string ConnectionString { get; }

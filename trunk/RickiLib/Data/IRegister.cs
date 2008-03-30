@@ -6,9 +6,9 @@ namespace RickiLib.Data
 		
 	public interface IRegister
 	{
-		void Save ();
+		bool Save ();
 		bool Remove ();
-		bool Restore ();
+		bool Update ();
 		bool Exists { get; }
 		
 //		string TableName { get; }
