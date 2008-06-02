@@ -3,9 +3,11 @@ using System;
 using System.IO;
 using System.Threading;
 using Gtk;
+/*
+* DEPRECATED *
 using Gnome;
 
-namespace RickiLib.Widgets
+namespace RickiLib.Gnome
 {
 	
 	public class HelpDialog : Gtk.Dialog
@@ -119,4 +121,6 @@ namespace RickiLib.Widgets
 			);
 		}
 	}
+
 }
+*/

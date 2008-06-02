@@ -1,0 +1,36 @@
+<Combine name="RickiLib" fileversion="2.0">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="CombineConfiguration">
+      <Entry build="True" name="RickiLib" configuration="Debug" />
+      <Entry build="True" name="RickiLib.Widgets" configuration="Debug" />
+      <Entry build="True" name="RickiLib.Types" configuration="Debug" />
+      <Entry build="True" name="RickiLib.Data" configuration="Debug" />
+      <Entry build="True" name="RickiLib.Drawing" configuration="Debug" />
+      <Entry build="True" name="RickiLib.Gnome" configuration="Debug" />
+    </Configuration>
+    <Configuration name="Release" ctype="CombineConfiguration">
+      <Entry build="True" name="RickiLib" configuration="Release" />
+      <Entry build="True" name="RickiLib.Widgets" configuration="Release" />
+      <Entry build="True" name="RickiLib.Types" configuration="Release" />
+      <Entry build="True" name="RickiLib.Data" configuration="Release" />
+      <Entry build="True" name="RickiLib.Drawing" configuration="Release" />
+      <Entry build="True" name="RickiLib.Gnome" configuration="Release" />
+    </Configuration>
+  </Configurations>
+  <StartMode startupentry="RickiLib" single="True">
+    <Execute type="None" entry="RickiLib" />
+    <Execute type="None" entry="RickiLib.Widgets" />
+    <Execute type="None" entry="RickiLib.Types" />
+    <Execute type="None" entry="RickiLib.Data" />
+    <Execute type="None" entry="RickiLib.Drawing" />
+    <Execute type="None" entry="RickiLib.Gnome" />
+  </StartMode>
+  <Entries>
+    <Entry filename="RickiLib.mdp" />
+    <Entry filename="RickiLib.Widgets/RickiLib.Widgets.mdp" />
+    <Entry filename="RickiLib.Types/RickiLib.Types.mdp" />
+    <Entry filename="RickiLib.Data/RickiLib.Data.mdp" />
+    <Entry filename="RickiLib.Drawing/RickiLib.Drawing.mdp" />
+    <Entry filename="RickiLib.Gnome/RickiLib.Gnome.mdp" />
+  </Entries>
+</Combine>

@@ -1,5 +1,7 @@
 
 using System;
+/*
+* DEPRECATED *
 using System.Drawing;
 
 namespace RickiLib.Types
@@ -23,3 +25,4 @@ namespace RickiLib.Types
 	}
 	
 }
+*/

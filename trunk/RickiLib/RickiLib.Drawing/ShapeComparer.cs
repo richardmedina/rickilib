@@ -1,3 +1,5 @@
+/*
+* DEPRECATED *
 using System;
 using System.Collections.Generic;
 
@@ -12,3 +14,4 @@ namespace RickiLib.Drawing
 		}
 	}
 }
+*/

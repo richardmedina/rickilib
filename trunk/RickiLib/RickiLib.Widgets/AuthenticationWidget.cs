@@ -1,8 +1,3 @@
-// AuthenticationWidget.cs created with MonoDevelop
-// User: ricki at 04:55 p 10/10/2007
-//
-// To change standard headers go to Edit->Preferences->Coding->Standard Headers
-//
 
 using System;
 using Gtk;

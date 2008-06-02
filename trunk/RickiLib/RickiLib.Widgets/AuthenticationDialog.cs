@@ -32,7 +32,8 @@ namespace RickiLib.Widgets
 			
 			base.ActionArea.ShowAll ();
 		}
-
+/*
+* DEPRECATED *
 		public new ResponseType Run ()
 		{
 			ResponseType response;
@@ -48,7 +49,7 @@ namespace RickiLib.Widgets
 			
 			return response;
 		}
-		
+*/
 		private void entry_Changed (object sender, EventArgs args)
 		{
 			base.SetResponseSensitive (ResponseType.Ok, 

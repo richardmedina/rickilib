@@ -1,3 +1,6 @@
+/*
+
+* DEPRECATED *
 
 using System;
 using System.Drawing;
@@ -107,3 +110,4 @@ namespace RickiLib.Widgets
 		
 	}
 }
+*/

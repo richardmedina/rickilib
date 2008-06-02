@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace RickiLib.Drawing
 {
-
+/*
+* DEPRECATED *
 	public class Canvas : RickiLib.Widgets.DrawingAreaGDI
 	{
 		
@@ -25,4 +25,5 @@ namespace RickiLib.Drawing
 			get { return shapes; }
 		}
 	}
+*/
 }

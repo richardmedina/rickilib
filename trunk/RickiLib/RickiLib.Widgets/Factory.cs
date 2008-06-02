@@ -1,7 +1,6 @@
 
 using System;
 using System.IO;
-using System.Drawing;
 using Gtk;
 
 namespace RickiLib.Widgets
@@ -80,7 +79,8 @@ namespace RickiLib.Widgets
 			
 			return button;
 		}
-		
+/*		
+* DEPRECATED *
 		public static Gdk.Pixbuf ImageToPixbuf(System.Drawing.Image image)
 		{
 			using (MemoryStream stream = new MemoryStream ()) {
@@ -89,6 +89,6 @@ namespace RickiLib.Widgets
 				return new Gdk.Pixbuf (stream);
 			}
  		}
-
+*/
 	}
 }

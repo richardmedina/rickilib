@@ -1,6 +1,5 @@
 
 using System;
-using RickiLib.Widgets;
 
 namespace RickiLib.Types
 {

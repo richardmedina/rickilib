@@ -19,7 +19,8 @@ namespace RickiLib.Widgets
 			
 			buttonHelp = (Gtk.Button) base.AddButton (Stock.Help, (int) ResponseType.Help);
 		}
-		
+		/*
+		* DEPRECATED *
 		public new ResponseType Run ()
 		{
 			ResponseType response;
@@ -34,7 +35,7 @@ namespace RickiLib.Widgets
 			} while (response == ResponseType.Help);
 			return response;
 		}
-		
+		*/
 		protected Button ButtonHelp {
 			get {
 				return buttonHelp;
