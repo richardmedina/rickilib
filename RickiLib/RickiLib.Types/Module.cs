@@ -2,7 +2,7 @@
 using System;
 using Gtk;
 
-namespace RickiLib.Widgets
+namespace RickiLib.Types
 {
 	
 	
@@ -72,13 +72,9 @@ namespace RickiLib.Widgets
 			}
 		}
 		
-		internal int Position {
-			get {
-				return position;
-			}
-			set {
-				position = value;
-			}
+		public int Position {
+			get { return position; }
+			set { position = value; }
 		}
 	}
 }

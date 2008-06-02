@@ -15,7 +15,6 @@ namespace RickiLib.Data.MySql
 				
 		public MySqlDatabase ()
 		{
-		
 		}
 		public MySqlDatabase (string hostname, 
 			string username, 
