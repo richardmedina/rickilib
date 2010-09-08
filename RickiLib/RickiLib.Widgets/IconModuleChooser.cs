@@ -6,8 +6,9 @@ using RickiLib.Types;
 namespace RickiLib.Widgets 
 {
 
-	public class IconModuleChooser : Gtk.Viewport
+	public class IconModuleChooser : ModuleChooser
 	{
+		private Gtk.Viewport _viewport;
 		private Gtk.IconView iconView;
 		private Gtk.ListStore listStore;
 		private RickiLib.Types.ModuleCollection collection;
@@ -25,7 +26,6 @@ namespace RickiLib.Widgets
 		
 		public IconModuleChooser (RickiLib.Types.ModuleCollection col)
 		{
-			SelectionActivated = onSelectionActivated;
 			collection = col;
 			currentPath = string.Empty;
 			
@@ -35,6 +35,8 @@ namespace RickiLib.Widgets
 				typeof (bool), // is module?
 				typeof (Module) // page instance
 			);
+			
+			_viewport = new Viewport ();
 			
 			iconView = new IconView (listStore);
 			iconView.KeyPressEvent += iconView_KeyPressEvent;
@@ -49,10 +51,17 @@ namespace RickiLib.Widgets
 			vbox.PackStart (labelPath, false, false, 0);
 			vbox.PackStart (iconView);
 			
-			base.Add (vbox);
+			_viewport.Add (vbox);
+			Add (_viewport);
 			loadModules (string.Empty);
 			collection.Added += collection_Added;
 		}
+		
+		protected override void OnSelectionActivated (RickiLib.Types.Module module)
+		{
+			base.OnSelectionActivated (module);
+		}
+
 		
 		private void loadModules (string path)
 		{		
@@ -125,19 +134,13 @@ namespace RickiLib.Widgets
 					
 			if (ispage) {
 				Module page = (Module) listStore.GetValue (iter, 3);
-				SelectionActivated (
-					this,
-					new ModuleCollectionEventArgs (page));
+				OnSelectionActivated (page);
 			} else {
 				string sep = string.Empty;
 				currentPath += sep + listStore.GetValue (iter, 1).ToString ();
 				loadModules (currentPath);
 			}
 
-		}
-		
-		protected virtual void OnSelectionActivated (Module page)
-		{
 		}
 		
 		private string getFolderName (string path, int from)
@@ -237,17 +240,9 @@ namespace RickiLib.Widgets
 				}
 		}
 		
-		private void onSelectionActivated (object sender,
-			ModuleCollectionEventArgs args)
-		{
-			OnSelectionActivated (args.Page);
-		}
-		
 		public ModuleCollection Collection {
 			get { return collection; }
 		}
-		
-		public event ModuleCollectionEvent SelectionActivated;
 	}
 }
 
