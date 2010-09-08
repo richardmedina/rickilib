@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using Gtk;
+using Gdk;
 
 namespace RickiLib.Widgets
 {
@@ -9,6 +10,37 @@ namespace RickiLib.Widgets
 	
 	public static class Factory
 	{
+		
+		public static Gtk.ImageMenuItem MenuItem (string stock_id, string label)
+		{
+			ImageMenuItem item = MenuItem (label);
+			item.Image = new Gtk.Image (stock_id, IconSize.Menu);
+			return item;
+		}
+		
+		public static Gtk.ImageMenuItem MenuItem (string stock_id)
+		{
+			return MenuItem (stock_id, (Gtk.AccelGroup) null);
+		}
+	
+		public static Gtk.ImageMenuItem MenuItem (string stock_id, Gtk.AccelGroup accel)
+		{
+			 return new Gtk.ImageMenuItem (stock_id, accel);
+		}
+		
+		public static Gtk.ImageMenuItem MenuItem (string label, Gdk.Pixbuf pixbuf)
+		{
+			return MenuItem (label, new Gtk.Image (pixbuf));
+		}
+	
+		public static Gtk.ImageMenuItem MenuItem (string label, Gtk.Image image)
+		{
+			Gtk.ImageMenuItem menuitem = new Gtk.ImageMenuItem (label);
+			menuitem.Image = image;
+			
+			return menuitem;
+		}
+	
 		public static Gtk.Label Label (string text)
 		{
 			Gtk.Label label = new Gtk.Label ();
