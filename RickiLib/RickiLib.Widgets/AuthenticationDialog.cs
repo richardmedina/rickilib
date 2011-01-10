@@ -64,5 +64,9 @@ namespace RickiLib.Widgets
 			if (authWidget.UsernameEntry.Text.Trim ().Length > 0 && authWidget.PasswordEntry.Text.Trim ().Length > 0)
 				base.Respond (ResponseType.Ok);
 		}
+		
+		public AuthenticationWidget AuthenticationWidget {
+			get { return authWidget; }	
+		}
 	}
 }

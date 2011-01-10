@@ -29,6 +29,9 @@ namespace RickiLib.Widgets
 			entry.WidthRequest = 10;
 			entry.Activated += entry_Activated;
 			entry.KeyPressEvent += entry_KeyPressEvent;
+			entry.FocusOutEvent += delegate {
+				ShowHideEditor ();	
+			};
 			
 			label = new Gtk.Label (text);
 			label.Ellipsize = Pango.EllipsizeMode.End;
