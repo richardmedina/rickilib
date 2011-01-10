@@ -32,9 +32,9 @@ namespace RickiLib.Widgets
 			set { title = value; }
 		}
 		
-		protected virtual bool OnClose ()
+		protected virtual void OnClose (bool do_close)
 		{
-			return false;
+			Close (this, new CloseEventArgs (do_close));
 		}
 		
 		public int Position { 
@@ -47,7 +47,9 @@ namespace RickiLib.Widgets
 			get { return closable; }
 			set { closable = false; }
 		}
+		
 		public abstract Gtk.Widget Widget { get; }
+		
 		public virtual Gtk.Widget TitleWidget { 
 			get { return titleWidget; }
 			set { titleWidget = value; }
@@ -55,7 +57,6 @@ namespace RickiLib.Widgets
 		
 		private void onClose (object sender, CloseEventArgs args)
 		{
-			
 		}
 	}
 }
