@@ -101,7 +101,8 @@ namespace RickiLib.Widgets
 		private void menu_MenuPositionFunc (Menu menu, out int x, out int y, out bool push_in)
 		{
 			int bx, by;
-			base.Parent.GdkWindow.GetRootOrigin (out bx, out by);
+			base.GdkWindow.GetOrigin (out bx, out by);
+			
 			
 			x = bx + Allocation.X;
 			y = by + Allocation.Y + Allocation.Height;

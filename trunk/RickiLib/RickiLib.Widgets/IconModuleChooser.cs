@@ -61,7 +61,7 @@ namespace RickiLib.Widgets
 		{
 			base.OnSelectionActivated (module);
 		}
-
+		 
 		
 		private void loadModules (string path)
 		{		

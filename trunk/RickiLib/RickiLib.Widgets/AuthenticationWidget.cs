@@ -49,6 +49,16 @@ namespace RickiLib.Widgets
 			base.PackStart (hbox, false, false, 0);
 		}
 		
+		protected virtual bool OnAuthenticate (string username, string Password)
+		{
+			return false;
+		}
+		
+		public bool Authenticate (string username, string password)
+		{
+			return true;
+		}
+		
 		public Gtk.Entry UsernameEntry {
 			get { return this.entryUsername; }
 		}
