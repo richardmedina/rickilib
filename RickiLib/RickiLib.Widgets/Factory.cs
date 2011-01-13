@@ -11,29 +11,29 @@ namespace RickiLib.Widgets
 	public static class Factory
 	{
 		
-		public static Gtk.ImageMenuItem MenuItem (string stock_id, string label)
+		public static Gtk.ImageMenuItem CustomMenuItem (string stock_id, string label)
 		{
-			ImageMenuItem item = MenuItem (label);
+			ImageMenuItem item = CustomMenuItem (label);
 			item.Image = new Gtk.Image (stock_id, IconSize.Menu);
 			return item;
 		}
 		
-		public static Gtk.ImageMenuItem MenuItem (string stock_id)
+		public static Gtk.ImageMenuItem CustomMenuItem (string stock_id)
 		{
-			return MenuItem (stock_id, (Gtk.AccelGroup) null);
+			return CustomMenuItem (stock_id, (Gtk.AccelGroup) null);
 		}
 	
-		public static Gtk.ImageMenuItem MenuItem (string stock_id, Gtk.AccelGroup accel)
+		public static Gtk.ImageMenuItem CustomMenuItem (string stock_id, Gtk.AccelGroup accel)
 		{
 			 return new Gtk.ImageMenuItem (stock_id, accel);
 		}
 		
-		public static Gtk.ImageMenuItem MenuItem (string label, Gdk.Pixbuf pixbuf)
+		public static Gtk.ImageMenuItem CustomMenuItem (Gdk.Pixbuf pixbuf, string label)
 		{
-			return MenuItem (label, new Gtk.Image (pixbuf));
+			return CustomMenuItem (new Gtk.Image (pixbuf), label);
 		}
 	
-		public static Gtk.ImageMenuItem MenuItem (string label, Gtk.Image image)
+		public static Gtk.ImageMenuItem CustomMenuItem (Gtk.Image image, string label)
 		{
 			Gtk.ImageMenuItem menuitem = new Gtk.ImageMenuItem (label);
 			menuitem.Image = image;

@@ -1,23 +1,16 @@
-﻿<UserCombinePreferences version="1.0" filename="/home/ricki/progros/CSharp/Projects/RickiLib/trunk/RickiLib/RickiLib.mds">
-  <Files>
-    <File name="Welcome" />
-  </Files>
-  <Views>
-    <ViewMemento id="ProjectPad">
-      <Node expanded="True" />
-    </ViewMemento>
-    <ViewMemento id="ClassPad">
-      <Node expanded="True" />
-    </ViewMemento>
-    <ViewMemento id="ConnectionManagerPad">
-      <Node selected="True" />
-    </ViewMemento>
-    <ViewMemento id="MonoDevelop.NUnit.TestPad">
-      <Node />
-    </ViewMemento>
-  </Views>
-  <Properties>
-    <Property key="ActiveWindow" value="Welcome" />
-    <Property key="ActiveConfiguration" value="Debug" />
-  </Properties>
-</UserCombinePreferences>
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppSettings.cs" ctype="Workbench">
+    <Files>
+      <File FileName="AppSettings.cs" Line="28" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
