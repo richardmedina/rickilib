@@ -7,6 +7,8 @@ namespace RickiLib.Widgets
 	
 	
 	public class CustomDialog : Gtk.Dialog {
+		
+		private EventHandler _help_clicked;
 		private Button buttonHelp;
 		
 		public CustomDialog ()
@@ -17,25 +19,31 @@ namespace RickiLib.Widgets
 			base.Resize (640, 480);
 			base.Resizable = false;
 			
+			_help_clicked = onHelpClicked;
+			
 			buttonHelp = (Gtk.Button) base.AddButton (Stock.Help, (int) ResponseType.Help);
 		}
-		/*
-		* DEPRECATED *
-		public new ResponseType Run ()
+		
+		public virtual new ResponseType Run ()
 		{
 			ResponseType response;
 			do {
 				response = (ResponseType) base.Run ();
-				if (response == ResponseType.Help) {
-					base.Hide ();
-					HelpDialog helpDialog = new HelpDialog (HelpSection);
-					helpDialog.Run ();
-					helpDialog.Destroy ();
-				}
+				
 			} while (response == ResponseType.Help);
+			
 			return response;
 		}
-		*/
+		
+		protected virtual void OnHelpClicked ()
+		{
+			_help_clicked (this, EventArgs.Empty);
+		}
+		
+		private void onHelpClicked (object sender, EventArgs args)
+		{
+		}
+
 		protected Button ButtonHelp {
 			get {
 				return buttonHelp;
@@ -48,5 +56,9 @@ namespace RickiLib.Widgets
 			}
 		}
 	
+		public event EventHandler HelpClicked {
+			add { _help_clicked += value; }
+			remove { _help_clicked -= value; }
+		}
 	}
 }
