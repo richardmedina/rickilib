@@ -1,15 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppSettings.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RickiLib.Widgets/CustomDialog.cs" ctype="Workbench">
     <Files>
-      <File FileName="AppSettings.cs" Line="28" Column="3" />
+      <File FileName="AppSettings.cs" Line="1" Column="1" />
+      <File FileName="RickiLib.Widgets/Factory.cs" Line="1" Column="1" />
+      <File FileName="RickiLib.Widgets/DataSetView.cs" Line="1" Column="1" />
+      <File FileName="RickiLib.Widgets/CustomDialog.cs" Line="62" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" />
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>reader ["tra_fechaultimopago"].ToString ()</Value>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
