@@ -91,16 +91,17 @@ namespace RickiLib.Widgets
 				Model = _store;
 		}
 		static int counter = 0;
+		
 		public virtual bool OnRowAdd (string [] fields)
 		{
 			if (CurrentFilter.Length == 0) {
-				_store.AppendValues (fields);
+				AddRow (fields);
 			}
 			else
 				for (int i = 0; i < fields.Length; i ++) {
 					if (Columns [i].Visible)
 						if (fields [i].ToLower ().IndexOf (CurrentFilter) > -1)
-							_store.AppendValues (fields);
+							AddRow (fields);
 				}
 			
 			if (ViewResponsiveLoading)
@@ -108,6 +109,11 @@ namespace RickiLib.Widgets
 					Application.RunIteration ();
 			
 			return true;
+		}
+		
+		public virtual void AddRow (string [] row)
+		{
+			_store.AppendValues (row);
 		}
 				
 		public virtual int Populate ()
