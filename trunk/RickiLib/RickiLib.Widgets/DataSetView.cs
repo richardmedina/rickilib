@@ -115,7 +115,7 @@ namespace RickiLib.Widgets
 		{
 			_store.AppendValues (row);
 		}
-				
+			
 		public virtual int Populate ()
 		{
 			_store.Clear ();
@@ -174,13 +174,43 @@ namespace RickiLib.Widgets
 				
 		public bool GetSelected (out string [] fields)
 		{
-			fields = new string [Renders.Length];
+			fields = null;
 			Gtk.TreeIter iter;
 			
 			if (Selection.GetSelected (out iter)) {
-				for (int i = 0; i < fields.Length; i ++)
-					fields [i] = (string) Store.GetValue (iter, i);
-				return true;
+				if (GetRow (iter, out fields))
+					return true;
+			}
+			
+			return false;
+		}
+		
+		public bool GetRow (Gtk.TreeIter iter, out string [] fields)
+		{
+			fields = new string [Renders.Length];
+			
+			if (!Store.IterIsValid (iter))
+				return false;
+			
+			for (int i = 0; i < fields.Length; i ++)
+				fields [i] = (string) Store.GetValue (iter, i);
+			
+			return true;
+		}
+		
+		public bool GetLastRow (out string [] fields)
+		{
+			Gtk.TreeIter iter;
+			Gtk.TreeIter last_iter = TreeIter.Zero;
+			fields = null;
+			
+			if (Store.GetIterFirst (out iter))
+				do {
+					last_iter = iter;
+				} while (Store.IterNext (ref iter));
+			
+			if (GetRow (last_iter, out fields)) {
+					return true;
 			}
 			
 			return false;

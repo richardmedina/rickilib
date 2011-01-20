@@ -1,15 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RickiLib.Widgets/CustomDialog.cs" ctype="Workbench">
-    <Files>
-      <File FileName="AppSettings.cs" Line="1" Column="1" />
-      <File FileName="RickiLib.Widgets/Factory.cs" Line="1" Column="1" />
-      <File FileName="RickiLib.Widgets/DataSetView.cs" Line="1" Column="1" />
-      <File FileName="RickiLib.Widgets/CustomDialog.cs" Line="62" Column="4" />
-    </Files>
+  <MonoDevelop.Ide.Workbench ctype="Workbench">
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" />
+        <State expanded="True" selected="True">
+          <Node name="RickiLib.Widgets" expanded="True" />
+        </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
