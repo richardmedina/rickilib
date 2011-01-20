@@ -162,5 +162,13 @@ namespace RickiLib.Widgets
 				
 			}
 		}
+		
+		public Gtk.EventBox EventBoxLeft {
+			get { return ebImageFind; }
+		}
+		
+		public Gtk.EventBox EventBoxRight {
+			get { return ebImageClear; }
+		}
 	}
 }
