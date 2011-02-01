@@ -10,7 +10,7 @@ namespace RickiLib.Widgets
 	public class DateEntry : SearchEntry
 	{
 		private DateTime date;
-		
+		public string DateTimeFormat = "dd/MM/yyyy";
 		
 		public DateEntry () : this (DateTime.Now)
 		{
@@ -40,7 +40,7 @@ namespace RickiLib.Widgets
 			}
 			set {
 				date = value;
-				base.Entry.Text = date.ToLongDateString ();
+				base.Entry.Text = date.ToString (DateTimeFormat);
 			}
 		}
 		

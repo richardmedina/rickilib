@@ -50,13 +50,17 @@ namespace RickiLib.Widgets
 			return response;
 		}
 */
+		
+		protected virtual bool OnAuthenticate (string username, string password)
+		{
+			return true;
+		}
+		
 		private void entry_Changed (object sender, EventArgs args)
 		{
 			base.SetResponseSensitive (ResponseType.Ok, 
 					((authWidget.UsernameEntry.Text.Trim ().Length > 0) && 
 					(authWidget.PasswordEntry.Text.Trim ().Length > 0)));
-					
-					
 		}
 		
 		private void entryPassword_Activated (object sender, EventArgs args)

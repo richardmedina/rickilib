@@ -51,7 +51,7 @@ namespace RickiLib.Widgets
 		
 		protected virtual bool OnAuthenticate (string username, string Password)
 		{
-			return false;
+			return true;
 		}
 		
 		public bool Authenticate (string username, string password)
