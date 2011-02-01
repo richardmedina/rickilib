@@ -21,7 +21,8 @@ namespace RickiLib.Widgets
 			this.date = date;
 			this.Entry.Xalign = 0.5f;
 			base.Entry.IsEditable = false;
-			base.Entry.Text = this.date.ToLongDateString ();
+			//base.Entry.Text = this.date.ToLongDateString ();
+			Date = date;
 		}
 		
 		protected override void OnImageFindClicked (Gdk.EventButton event_button)
