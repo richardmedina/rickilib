@@ -51,7 +51,8 @@ namespace RickiLib.Widgets
 				Store.IterNext (ref iter);
 				Store.Remove (ref iter_for_removing);
 				if (AutoSelectable)
-					Selection.SelectIter (iter);
+					if (Store.IterIsValid (iter))
+						Selection.SelectIter (iter);
 			}
 		}
 		
