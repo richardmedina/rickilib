@@ -58,10 +58,10 @@ namespace RickiLib.Widgets
 		}
 		
 		protected virtual void OnHelpRequest ()
-		{
+		{/*
 			HelpDialog dialog = new HelpDialog();
 			dialog.Run ();
-			dialog.Destroy ();
+			dialog.Destroy ();*/
 			_help_request (this, EventArgs.Empty);	
 		}
 		
