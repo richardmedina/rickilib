@@ -10,6 +10,8 @@ namespace RickiLib.Widgets
 	{
 		private Gtk.Entry entryUsername;
 		private Gtk.Entry entryPassword;
+		private Gtk.Image _image;
+		
 //		private Gtk.Button buttonOk;
 //		private Gtk.Button buttonHelp;
 		
@@ -29,10 +31,10 @@ namespace RickiLib.Widgets
 			//this.buttonOk = new Gtk.Button (Stock.Ok);
 			//this.buttonHelp = new Gtk.Button (Stock.Help);
 			
-			Gtk.Image image = Image.LoadFromResource ("dialog_auth_icon.png");
+			_image = Image.LoadFromResource ("dialog_auth_icon.png");
 			Gtk.HBox hbox = new HBox (false, 0); 
 			
-			hbox.PackStart (image, false, false, 0);
+			hbox.PackStart (_image, false, false, 0);
 			hbox.PackStart (Factory.Label ("<span font_desc='14'><b>Introduzca su nombre de \nusuario y contraseña</b></span>\n" +
 						"Para Acceder a la aplicación necesita \nproporcionar su nombre de usuario y su contraseña"));
 			
@@ -65,6 +67,10 @@ namespace RickiLib.Widgets
 		
 		public Gtk.Entry PasswordEntry {
 			get { return this.entryPassword; }
+		}
+		
+		public Gtk.Image ImageLogo {
+			get { return _image; }
 		}
 	}
 }
