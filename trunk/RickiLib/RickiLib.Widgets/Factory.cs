@@ -111,6 +111,14 @@ namespace RickiLib.Widgets
 			
 			return button;
 		}
+		
+		public static Gtk.ToolButton ToolButton (string stock_id, string label_text)
+		{
+			Gtk.ToolButton button = new Gtk.ToolButton (stock_id);
+			button.Label = label_text;
+			
+			return button;
+		}
 /*		
 * DEPRECATED *
 		public static Gdk.Pixbuf ImageToPixbuf(System.Drawing.Image image)
