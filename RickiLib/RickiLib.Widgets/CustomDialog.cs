@@ -37,7 +37,7 @@ namespace RickiLib.Widgets
 				
 				if (response == ResponseType.Ok)
 						if (!OnValidate (out message)) {
-							MessageDialog msg = new MessageDialog (null,
+							MessageDialog msg = new MessageDialog (this,
 					                                       DialogFlags.Modal, MessageType.Error,
 					                                       ButtonsType.Ok, message);
 							msg.Title = "Error";
