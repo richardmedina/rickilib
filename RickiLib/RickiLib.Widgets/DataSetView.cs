@@ -1,9 +1,13 @@
 
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Reflection;
+using System.Text;
 using Gtk;
 
-
+using RickiLib.Types;
 namespace RickiLib.Widgets
 {
 
@@ -142,6 +146,83 @@ namespace RickiLib.Widgets
 			
 			return count;
 		}
+		
+		private class StringCollection : List<string> 
+		{	
+		}
+		
+		private class Intcollection : List<int> 
+		{	
+		}
+		
+		private string filecontent_header_get (FileType filetype)
+		{
+			Assembly _assembly = Assembly.GetExecutingAssembly();
+			
+			foreach (string filename in _assembly.GetManifestResourceNames()) {
+				Console.WriteLine (filename);	
+			}
+			
+			Stream stream = _assembly.GetManifestResourceStream ("ExcelTypeDefinition.xml");
+			
+			string content = string.Empty;
+			
+			using (StreamReader reader = new StreamReader (stream)) {
+				content = reader.ReadToEnd ();
+			}
+			
+			return content;
+		}
+		
+		private string new_cell_data (params string [] fields)
+		{
+			string row = "   <Row ss:AutoFitHeight=\"0\">\r\n";
+			
+			foreach (string field in fields) {
+				row += string.Format ("    <Cell><Data ss:Type=\"String\">{0}</Data></Cell>\r\n",
+				                      field);
+			}
+			row += "   </Row>\r\n";
+			
+			return row;
+		}
+		
+		public void Export (string filename, FileType filetype, string author, DateTime created_date)
+		{	
+			Gtk.TreeIter iter;
+			
+			StringBuilder strings = new StringBuilder ();
+			StringCollection strs = new StringCollection ();
+			Intcollection indexes = new Intcollection ();
+			
+			for (int i = 0; i < Columns.Length; i ++) {
+				if (Columns [i].Visible) {
+					strs.Add (Columns [i].Title);
+					indexes.Add (i);
+				}
+			}
+			
+			strings.Append (new_cell_data(strs.ToArray ()));
+			
+			if (Store.GetIterFirst (out iter))
+				do {
+					string [] row;
+					if (GetRow (iter, out row)) {
+						StringCollection fields = new StringCollection ();
+						foreach (int index in indexes) {
+							fields.Add (row [index]);
+						}
+						strings.Append (new_cell_data (fields.ToArray ()));
+					}
+				} while (Store.IterNext (ref iter));
+			
+			using (StreamWriter writer = new StreamWriter (filename)) {
+				string content = filecontent_header_get (filetype);
+				content = content.Replace ("${AUTHOR}", author).Replace ("${CREATED_DATE}", created_date.ToString ("yyyy-MM-ddTdhh:mm:ss.fff")).Replace ("${ROWS}", strings.ToString ());
+				writer.Write (content);
+			}
+		}
+		
 		
 		protected virtual void OnActivated ()
 		{
