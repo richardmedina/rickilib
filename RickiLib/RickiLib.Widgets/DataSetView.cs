@@ -29,6 +29,8 @@ namespace RickiLib.Widgets
 		
 		public bool ViewResponsiveLoading = false;
 		
+		public string Title = string.Empty;
+		
 		public DataSetView ()
 		{
 			Activated = onActivated;
