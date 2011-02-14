@@ -237,6 +237,9 @@ namespace RickiLib.Widgets
 				OnActivated ();
 			}
 			
+			if (evnt.Key == Gdk.Key.Meta_R)
+				OnPopupMenu ();
+			
 			return base.OnKeyPressEvent (evnt);
 		}
 		
@@ -251,6 +254,10 @@ namespace RickiLib.Widgets
 					if (_store.GetIterFromString (out iter, path.ToString ()))
 					    OnActivated ();
 				}
+			}
+			
+			if (evnt.Button == 3) {
+				OnPopupMenu ();	
 			}
 			
 			return base.OnButtonPressEvent (evnt);
