@@ -18,6 +18,13 @@ namespace RickiLib.Widgets
 		private Gdk.Color background;
 		private Gdk.Cursor cursorHand;
 		
+		public uint Delay = 0;
+		bool _flag_send_activated = false;
+		private DateTime _lastchange_date = DateTime.MinValue;
+		
+		public EventHandler _changed;
+		public EventHandler _activated;
+		
 		public SearchEntry () : 
 			this (new Gtk.Image (Stock.Find, IconSize.Menu), null)
 		{
@@ -33,6 +40,7 @@ namespace RickiLib.Widgets
 			entry = new Entry ();
 			entry.HasFrame = false;
 			entry.Changed += entry_Changed;
+			entry.Activated += HandleEntryActivated;
 			
 			imageFind = img;
 			imageClear = new Image (Stock.Clear, IconSize.Menu);
@@ -75,6 +83,21 @@ namespace RickiLib.Widgets
 			eventbox.Add (hbox);
 			
 			base.Add (eventbox);
+			
+			_changed = onChanged;
+			_activated = onActivated;
+		}
+		
+		private void HandleEntryActivated (object sender, EventArgs e)
+		{
+			Console.WriteLine ("_entry_activated flag: {0}", _flag_send_activated);
+			if (!_flag_send_activated) {
+				if (_lastchange_date == DateTime.MinValue) {
+					OnActivated ();
+				} else {
+					_flag_send_activated = true;
+				}
+			}
 		}
 		
 		protected virtual void OnImageFindClicked 
@@ -90,6 +113,24 @@ namespace RickiLib.Widgets
 				);
 			}
 
+		}
+		
+		protected virtual void OnChanged ()
+		{
+			_changed (Entry, EventArgs.Empty);
+		}
+		
+		protected virtual void OnActivated ()
+		{
+			_activated (Entry, EventArgs.Empty);
+		}
+		
+		private void onChanged (object sender, EventArgs args)
+		{
+		}
+		
+		private void onActivated (object sender, EventArgs args)
+		{	
 		}
 						
 		private void ebImageFind_ButtonPressEvent (object sender,
@@ -139,7 +180,38 @@ namespace RickiLib.Widgets
 		private void entry_Changed (object sender,
 			EventArgs args)
 		{
-			ebImageClear.Visible = !(entry.Text.Length == 0); 
+			ebImageClear.Visible = !(entry.Text.Length == 0);
+			
+			entry_SendChanged ();
+		}
+		
+		private void entry_SendChanged ()
+		{
+			//Views [_notebook.Page].CurrentFilter = _entry_filter.Entry.Text;
+			bool flag = _lastchange_date == DateTime.MinValue;
+			_lastchange_date = DateTime.Now;
+		
+			Console.WriteLine ("DoSearch flag = {0}", flag);
+			if (flag)
+				GLib.Timeout.Add (Delay, new GLib.TimeoutHandler (do_search));
+		}
+		
+		private bool do_search ()
+		{
+			Console.WriteLine ("do_search");
+			if ((DateTime.Now - _lastchange_date).TotalMilliseconds >= Delay) {
+				//Views [_notebook.Page].CurrentFilter = _entry_filter.Entry.Text;
+				_lastchange_date = DateTime.MinValue;
+				OnChanged ();
+				if (_flag_send_activated) {
+					_flag_send_activated = false;
+					OnActivated ();
+				}
+				Console.WriteLine ("do_search False");
+				return false;
+			}
+			Console.WriteLine ("do_search True");
+			return true;
 		}
 		
 		private void ebImageClear_Shown (object sender, EventArgs args)
@@ -159,7 +231,6 @@ namespace RickiLib.Widgets
 			}
 			set {
 				menu = value;
-				
 			}
 		}
 		
@@ -169,6 +240,16 @@ namespace RickiLib.Widgets
 		
 		public Gtk.EventBox EventBoxRight {
 			get { return ebImageClear; }
+		}
+		
+		public event EventHandler Changed {
+			add { _changed += value; }
+			remove { _changed -= value; }
+		}
+		
+		public event EventHandler Activated {
+			add { _activated += value; }
+			remove { _activated -= value; }
 		}
 	}
 }
