@@ -31,10 +31,13 @@ namespace RickiLib.Widgets
 		
 		public string Title = string.Empty;
 		
+		public bool AllowCopyShortcut = true;
+		
 		public DataSetView ()
 		{
 			Activated = onActivated;
 			AutoSelectable = true;
+			Selection.Mode = SelectionMode.Multiple;
 		}
 		
 		public virtual void SendActivated ()
@@ -160,11 +163,11 @@ namespace RickiLib.Widgets
 		private string filecontent_header_get (FileType filetype)
 		{
 			Assembly _assembly = Assembly.GetExecutingAssembly();
-			
+			/*
 			foreach (string filename in _assembly.GetManifestResourceNames()) {
 				Console.WriteLine (filename);	
 			}
-			
+			*/
 			Stream stream = _assembly.GetManifestResourceStream ("ExcelTypeDefinition.xml");
 			
 			string content = string.Empty;
@@ -225,6 +228,25 @@ namespace RickiLib.Widgets
 			}
 		}
 		
+		public void CopyToClipboard ()
+		{
+			Clipboard clipboard = Clipboard.GetForDisplay (Display, Gdk.Atom.Intern ("CLIPBOARD", false));
+			//string buffer = string.Empty;
+			
+			DataSetRowCollection rows = GetSelectedRows ();
+			StringBuilder buffer = new StringBuilder ();
+			
+			for (int i = 0; i < rows.Count; i ++) {
+				string [] fields = rows [i];
+				for (int j = 0; j < fields.Length; j ++) {
+					buffer.Append (fields [j]);
+					if (j < fields.Length -1)
+						buffer.Append ("\t");
+				}
+				buffer.Append ("\n");
+			}
+			clipboard.Text = buffer.ToString ();
+		}
 		
 		protected virtual void OnActivated ()
 		{
@@ -233,6 +255,9 @@ namespace RickiLib.Widgets
 		
 		protected override bool OnKeyPressEvent (Gdk.EventKey evnt)
 		{
+			if ((evnt.State & Gdk.ModifierType.ControlMask) > 0)
+				if (evnt.Key == Gdk.Key.C || evnt.Key == Gdk.Key.c)
+					CopyToClipboard ();
 			if (evnt.Key == Gdk.Key.Return || evnt.Key == Gdk.Key.KP_Enter) {
 				OnActivated ();
 			}
@@ -265,15 +290,62 @@ namespace RickiLib.Widgets
 				
 		public bool GetSelected (out string [] fields)
 		{
+			
 			fields = null;
 			Gtk.TreeIter iter;
+			Gtk.TreePath [] paths;
 			
-			if (Selection.GetSelected (out iter)) {
-				if (GetRow (iter, out fields))
-					return true;
+			paths = Selection.GetSelectedRows ();
+			if (paths.Length == 1) {
+				if (Store.GetIterFromString (out iter, paths [0].ToString ()))
+					if (GetRow (iter, out fields))
+						return true;
 			}
 			
 			return false;
+			
+			
+			//return GetSelectedAtPointer (out fields);
+		}
+		
+		public DataSetRowCollection GetSelectedRows ()
+		{
+			TreePath [] paths = Selection.GetSelectedRows ();
+			
+			DataSetRowCollection rows = new DataSetRowCollection ();
+			
+			for (int i = 0; i < paths.Length; i ++) {
+				
+				Gtk.TreeIter iter;
+				string [] row;
+				if (Store.GetIterFromString (out iter, paths [i].ToString ()))
+					if (GetRow (iter, out row))
+						rows.Add (row);
+			}
+			
+			return rows;
+		}
+		
+		public bool GetSelectedAtPointer (out string [] fields)
+		{
+			bool result = false;
+			int x, y;
+			Gdk.ModifierType modifier;
+			Gtk.TreePath path;
+			Gtk.TreeIter iter;
+			
+			fields = null;
+			
+			GdkWindow.GetPointer (out x, out y, out modifier);
+			
+			if (GetPathAtPos (x, y, out path)) {
+				if (Store.GetIterFromString (out iter, path.ToString ())) {
+					if (GetRow (iter, out fields))
+					    result = true;
+				}
+			}
+			
+			return result;
 		}
 		
 		public bool GetRow (Gtk.TreeIter iter, out string [] fields)
@@ -312,7 +384,7 @@ namespace RickiLib.Widgets
 			int sort_id;
 			SortType sort_type;
 			
-			Console.WriteLine ("Sorting...");
+			//Console.WriteLine ("Sorting...");
 			if (_store.GetSortColumnId (out sort_id, out sort_type)) {
 				string astr = (string) _store.GetValue (a, sort_id);
 				string bstr = (string) _store.GetValue (b, sort_id);

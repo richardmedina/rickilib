@@ -90,7 +90,7 @@ namespace RickiLib.Widgets
 		
 		private void HandleEntryActivated (object sender, EventArgs e)
 		{
-			Console.WriteLine ("_entry_activated flag: {0}", _flag_send_activated);
+		//	Console.WriteLine ("_entry_activated flag: {0}", _flag_send_activated);
 			if (!_flag_send_activated) {
 				if (_lastchange_date == DateTime.MinValue) {
 					OnActivated ();
@@ -191,14 +191,14 @@ namespace RickiLib.Widgets
 			bool flag = _lastchange_date == DateTime.MinValue;
 			_lastchange_date = DateTime.Now;
 		
-			Console.WriteLine ("DoSearch flag = {0}", flag);
+		//	Console.WriteLine ("DoSearch flag = {0}", flag);
 			if (flag)
 				GLib.Timeout.Add (Delay, new GLib.TimeoutHandler (do_search));
 		}
 		
 		private bool do_search ()
 		{
-			Console.WriteLine ("do_search");
+		//	Console.WriteLine ("do_search");
 			if ((DateTime.Now - _lastchange_date).TotalMilliseconds >= Delay) {
 				//Views [_notebook.Page].CurrentFilter = _entry_filter.Entry.Text;
 				_lastchange_date = DateTime.MinValue;
@@ -207,10 +207,10 @@ namespace RickiLib.Widgets
 					_flag_send_activated = false;
 					OnActivated ();
 				}
-				Console.WriteLine ("do_search False");
+		//		Console.WriteLine ("do_search False");
 				return false;
 			}
-			Console.WriteLine ("do_search True");
+		//	Console.WriteLine ("do_search True");
 			return true;
 		}
 		
